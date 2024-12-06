@@ -7,6 +7,13 @@
 		"config": {
 		  "runtime": "python3.9"
 		}
+	  },
+	  {
+		"src": "manage.py",
+		"use": "@vercel/python",
+		"config": {
+		  "command": "python manage.py collectstatic --noinput"
+		}
 	  }
 	],
 	"routes": [
@@ -17,22 +24,6 @@
 	  {
 		"src": "/(.*)",
 		"dest": "myproject/wsgi.py"
-	  }
-	],
-	"builds": [
-	  {
-		"src": "myproject/wsgi.py",
-		"use": "@vercel/python",
-		"config": {
-		  "runtime": "python3.9"
-		}
-	  },
-	  {
-		"src": "manage.py",
-		"use": "@vercel/python",
-		"config": {
-		  "command": "python manage.py collectstatic --noinput"
-		}
 	  }
 	]
   }
