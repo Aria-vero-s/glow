@@ -3,4 +3,4 @@ from .models import Post
 
 def index(request):
     posts = Post.objects.all()
-    return render(request, 'blog/index.html', {'posts': posts})
+    return render(request, 'home/index.html', {'posts': posts})
