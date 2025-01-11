@@ -10,7 +10,7 @@ def register_customer(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')  # Redirect to homepage
+            return redirect('index')  # Redirect to homepage
     else:
         form = CustomerRegistrationForm()
     return render(request, 'accounts/register.html', {'form': form})
@@ -33,7 +33,7 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  # Redirect to homepage
+            return redirect('index')  # Redirect to homepage
     else:
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
