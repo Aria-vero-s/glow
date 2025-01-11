@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Giaza';
+    src: url('Giaza.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+.navbar-brand {
+    font-family: 'Giaza';
+    color: black !important;
+    font-size:4rem;
+    text-align: center;
+    width: 100%;
+}
+.nav-link a, i {
+    color:black !important;
+    transition:all 0.3s ease-in-out;
+}
+.nav-link a:hover, i:hover {
+    color: #7a7a7a !important;
+    transform: all;
+}
+.outline-dark {
+    border-color:black !important;
+}
+@media (max-width: 992px) {
+    .search-bar {
+        margin-bottom: 10px;
+    }
+}
