@@ -1,0 +1,36 @@
+{% extends 'accounts/staff_dashboard.html' %}
+
+{% block dashboard_content %}
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        font-weight: bold;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    .form-group input:focus {
+        border-color: var(--lavender);
+        outline: none;
+    }
+</style>
+<h1>Create a New Staff Member</h1>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% for error in field.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Create Staff Member</button>
+</form>
+{% endblock %}

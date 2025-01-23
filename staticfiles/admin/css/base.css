@@ -147,7 +147,6 @@ h1,h2,h3,h4,h5 {
 }
 
 h1 {
-    margin: 0 0 20px;
     font-weight: 300;
     font-size: 1.25rem;
 }
@@ -958,7 +957,6 @@ a.deletelink:focus, a.deletelink:hover {
 #site-name {
     padding: 0;
     margin: 0;
-    margin-inline-end: 20px;
     font-weight: 300;
     font-size: 1.5rem;
     color: var(--header-branding-color);
@@ -993,7 +991,6 @@ a.deletelink:focus, a.deletelink:hover {
 
 #user-tools {
     float: right;
-    margin: 0 0 0 20px;
     text-align: right;
 }
 

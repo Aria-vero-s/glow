@@ -7,27 +7,24 @@
 			<a href="#contact" class="cta-button">Shop today</a>
 		</div>
 	</section>
-	<div class="divider"></div>
-	<section class="posts">
-		<div class="posts-content">
-			<h1>Blog</h1>
-			<div class="small-divider"></div>
-			<div class="row">
-				{% for post in posts %}
-					<div class="col-md-4 mb-4">
-						<div class="card h-100">
-							<div class="card-body">
-								<h2 class="card-title">{{ post.title }}</h2>
-								<p class="card-text">
-									{{ post.content|truncatewords:20 }}
-								</p>
-								<a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More</a>
-							</div>
+	<section id="posts" class="container py-5">
+		<div class="row">
+			<h1 class="col-12 text-center mb-4">Welcome</h1>
+		</div>
+		<div class="row">
+			{% for post in posts %}
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+						<div class="card-body">
+							<h2 class="card-title">{{ post.title }}</h2>
+							<p class="card-text">
+								{{ post.content|truncatewords:20 }}
+							</p>
+							<a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More</a>
 						</div>
 					</div>
-				{% endfor %}
-			</div>			
+				</div>
+			{% endfor %}
 		</div>
-	</section>
-	<div class="divider"></div>
+	</section>	
 {% endblock %}

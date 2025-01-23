@@ -1,13 +1,52 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    #dashboard {
+        display: flex;
+        border-radius: 20px;
+        background-color: var(--light-grey);
+        overflow: hidden;
+        min-height: 100%;
+    }
 
-<div class="container mt-5 mb-5 text-center">
-    <div class="card">
-        <h2 class="mb-5 mt-5">Staff Dashboard</h2>
-        <p>Welcome, {{ user.username }}!</p>
-        <p>You can manage products and blog posts here.</p>
+    .sidebar {
+        background-color: var(--night);
+        padding: 20px 15px;
+        height: auto;
+    }
+    .sidebar a {
+        padding-top: 20px;
+        color: white;
+        text-decoration: none;
+    }
+    .sidebar i {
+        color: white !important;
+        padding-right: 10px !important;
+    }
+</style>
+
+<section id="dashboard" class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 order-md-1 order-1 sidebar">
+            <a href="{% url 'accounts:staff_dashboard' %}"><h3 class="text-white">Dashboard</h3></a>
+            <div class="nav flex-column">
+                <a class="nav-item" href="#"><i class="fas fa-pen"></i> Add Blog Post</a>
+                <a class="nav-item" href="{% url 'accounts:create_staff' %}"><i class="fas fa-users"></i> Add New Staff</a>
+                <a class="nav-item" href="#"><i class="fas fa-box"></i> Manage Products</a>
+                <a class="nav-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-8 order-md-2 order-2">
+            <div class="p-4">
+                <p>Welcome, {{ user.username }}!</p>
+                {% block dashboard_content %}
+                <p>Select a link from the sidebar to navigate to the different pages.</p>
+                {% endblock %}
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
 
 {% endblock %}
