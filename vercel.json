@@ -14,5 +14,8 @@
 		"src": "/(.*)",
 		"dest": "myproject/wsgi.py"
 	  }
-	]
+	],
+	"env": {
+		"DATABASE_URL": "postgresql://postgres:YyUVHSmwlVCVvqgyRuLInATrOyLAzLzP@postgres.railway.internal:5432/railway"
+	}
   }
