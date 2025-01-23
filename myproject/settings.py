@@ -88,9 +88,8 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgresql://postgres:YyUVHSmwlVCVvqgyRuLInATrOyLAzLzP@autorack.proxy.rlwy.net:11382/railway")
+    'default': dj_database_url.config(default="postgresql://postgres:YyUVHSmwlVCVvqgyRuLInATrOyLAzLzP@postgres.railway.internal:5432/railway")
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
