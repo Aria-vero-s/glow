@@ -1,0 +1,44 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+
+# Django stuff:
+db.sqlite3
+
+# Environment variables
+.env
+
+# IDE/editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Python tools
+*.coverage
+*.tox
+*.nox
+*.coverage.*
+*.hypothesis/
+.coverage
+*.log
+
+# Build and distribution directories
+build/
+dist/
+*.egg-info/
+
+# MyPy
+.mypy_cache/
+
+# Django migrations
+*/migrations/*
+
+# Vercel settings
+.vercel/
