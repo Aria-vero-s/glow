@@ -11,17 +11,32 @@
 	--light-grey: #ebebeb;
 	--night: #000000;
 }
-
+#white-bg {
+	background-color: #ffffff;
+}
 body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Merriweather', serif;
-	background-color: #fffbeb;
+	background-color: var(--night) !important;
 	color: #393e41;
 	height: 100%;
 	scroll-behavior: smooth;
+	animation: fadeIn 0.8s ease-in;
 }
+
+/* fade-in effect on page load */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -103,6 +118,7 @@ footer {
 	color: var(--white) !important;
 }
 footer a {
+	padding: 0px 5px;
 	text-decoration: none !important;
 	color: var(--lavender) !important;
 	transition: all 0.3s ease-in-out;

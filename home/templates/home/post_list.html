@@ -1,7 +1,10 @@
-<div class="row">
-    <div class="posts-content col-md-4 mb-4">
+{% extends "base.html" %}
+{% block title %}test{% endblock %}
+{% block content %}
+    <div class="container mt-4 mb-4">
+        <h1 class="mt-5 mb-5">Blog posts</h1>
         {% for post in posts %}
-            <div class="card h-100">
+            <div class="card mb-5">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text">
@@ -11,5 +14,7 @@
                 </div>
             </div>
         {% endfor %}
+        <br>
+        <a href="{% url 'index' %}" class="btn btn-secondary">Back to Home</a>
     </div>
-</div>
+{% endblock %}
