@@ -11,6 +11,10 @@
     text-align: center;
     width: 100%;
 }
+.brand {
+    font-family: 'Giaza';
+    font-size:4rem !important;
+}
 .nav-link a, i {
     color:black !important;
     transition:all 0.3s ease-in-out;
@@ -21,6 +25,12 @@
 }
 .outline-dark {
     border-color:black !important;
+}
+#navbarDropdown.dropdown-toggle::after {
+    display: none !important;
+}
+#accountDropdown.dropdown-toggle::after {
+    display: none !important;
 }
 .search-bar {
     margin-top: 10px;
