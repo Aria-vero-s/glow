@@ -5,8 +5,8 @@
 <div class="container mt-5 mb-5 text-center">
     <div class="card">
         <h2 class="mb-5 mt-5">Welcome, {{ user.username }}</h2>
-        <p>Email: {{ user.email }}</p>
-        <a href="{% url 'accounts:logout' %}">Logout</a>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <a href="{% url 'accounts:logout' %}" type="submit" class="btn btn-primary">Logout</a>
     </div>
 </div>
 
