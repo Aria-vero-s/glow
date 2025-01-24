@@ -7,9 +7,10 @@
         border-radius: 20px;
         background-color: var(--light-grey);
         overflow: hidden;
-        min-height: 100%;
     }
-
+    #dashboard .card {
+        border-radius: 20px;
+    }
     .sidebar {
         background-color: var(--night);
         padding: 20px 15px;
@@ -17,6 +18,7 @@
     }
     .sidebar a {
         padding-top: 20px;
+        padding-left: 20px;
         color: white;
         text-decoration: none;
     }
@@ -24,29 +26,103 @@
         color: white !important;
         padding-right: 10px !important;
     }
+    .dashboard-grid {
+        column-count: 3;
+        column-gap: 20px;
+        margin-top: 20px;
+    }
+    .card {
+        break-inside: avoid;
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: auto;
+    }
+    canvas {
+        height: 200px;
+        width: 100%;
+    }
+    @media (max-width: 1068px) {
+        .dashboard-grid {
+            column-count: 2;
+        }
+    }
+    @media (max-width: 480px) {
+        .dashboard-grid {
+            column-count: 1;
+        }
+    }
 </style>
 
-<section id="dashboard" class="container">
-    <div class="row">
-        <div class="col-12 col-md-4 order-md-1 order-1 sidebar">
-            <a href="{% url 'accounts:staff_dashboard' %}"><h3 class="text-white">Dashboard</h3></a>
-            <div class="nav flex-column">
-                <a class="nav-item" href="#"><i class="fas fa-pen"></i> Add Blog Post</a>
-                <a class="nav-item" href="{% url 'accounts:create_staff' %}"><i class="fas fa-users"></i> Add New Staff</a>
-                <a class="nav-item" href="#"><i class="fas fa-box"></i> Manage Products</a>
-                <a class="nav-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+<section id="dashboard" class="m-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 col-md-4 order-md-1 order-1 sidebar">
+                <div class="nav flex-column">
+                    <a class="nav-item" href="{% url 'accounts:staff_dashboard' %}"><i class="fas fa-chart-line"></i> Dashboard</a>
+                    <a class="nav-item" href="#"><i class="fas fa-pen"></i> Add Blog Post</a>
+                    <a class="nav-item" href="{% url 'accounts:create_staff' %}"><i class="fas fa-users"></i> Add New Staff</a>
+                    <a class="nav-item" href="#"><i class="fas fa-store"></i> Manage Products</a>
+                    <a class="nav-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
+                </div>
             </div>
-        </div>
-        <div class="col-12 col-md-8 order-md-2 order-2">
-            <div class="p-4">
-                <p>Welcome, {{ user.username }}!</p>
+            <div class="col-10 col-md-8 order-md-2 order-2">
                 {% block dashboard_content %}
-                <p>Select a link from the sidebar to navigate to the different pages.</p>
+                    <div class="dashboard-grid mb-4">
+                        <div class="card p-4">
+                            <p><strong>Welcome, {{ user.username }}!</strong></p>
+                            <p>Select a link from the sidebar to navigate to the different pages.</p>
+                        </div>
+
+                        <div class="card p-4">
+                            <p>
+                                <h4>Sales this month</h4>
+                                <canvas id="salesChart"></canvas>
+                            </p>
+                        </div>
+
+                        <div class="card p-4">
+                            <p>
+                                <h4>Total Website Visits</h4>
+                                <canvas id="salesChart"></canvas>
+                            </p>
+                        </div>
+
+                        <div class="card p-4">
+                            <p>
+                                <h4>Recent Orders</h4>
+                                <ul class="list-group">
+                                    {% for order in recent_orders %}
+                                        <li class="list-group-item">
+                                            Order #{{ order.id }} - {{ order.status }} 
+                                            <span class="badge badge-primary float-right">{{ order.date }}</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </p>
+                        </div>
+
+                        <div class="card p-4">
+                            <p>
+                                <h4>Top Products</h4>
+                                <ul class="list-group">
+                                    {% for product in top_products %}
+                                        <li class="list-group-item">
+                                            {{ product.name }} - Sold: {{ product.sold_count }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
                 {% endblock %}
             </div>
         </div>
     </div>
 </section>
-
 
 {% endblock %}

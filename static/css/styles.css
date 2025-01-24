@@ -35,7 +35,7 @@ a:hover {
 
 /* Hero Section */
 .hero {
-	height: 60vh;
+	height: 80vh;
 	background-image: url('/static/media/landing-image.png');
 	background-size: cover;
 	background-position: center;
@@ -97,15 +97,26 @@ a:hover {
 }
 
 /* Footer */
+
 footer {
-	text-align: center;
+	background-color: var(--night) !important;
+	color: var(--white) !important;
+}
+footer a {
+	text-decoration: none !important;
+	color: var(--lavender) !important;
+	transition: all 0.3s ease-in-out;
+}
+footer a:hover {
+	color: var(--grey) !important;
+}
+footer i {
+	color: var(--white) !important;
+}
+footer .container-fluid {
+	text-align:left !important;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	background-color: #393e41;
-	color: #fffbeb;
 	font-size: 1rem;
 	margin-top:50px;
-}
-footer p {
-	margin: 0;
 }
