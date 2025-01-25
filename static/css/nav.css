@@ -20,7 +20,7 @@
 
 .navbar a:hover {
     border-radius: 5px;
-    text-shadow: 0 0 10px #dedae1, 0 0 20px #dedae1, 0 0 30px #dedae1, 0 0 40px #dedae1;
+    text-shadow: 0 0 10px #dedae1, 0 0 20px #dedae1, 0 0 30px #dedae1, 0 0 40px #dedae1 !important;
 }
 
 .navbar-toggler {

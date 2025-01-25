@@ -26,17 +26,6 @@ body {
 	animation: fadeIn 0.8s ease-in;
 }
 
-/* fade-in effect on page load */
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 a {
 	text-decoration: none;
 	color: inherit;
@@ -67,7 +56,7 @@ a:hover {
 	align-items: center;
 }
 .tagline {
-	color: #fffbeb;
+	color: var(--white);
 	font-size: 2.5rem;
 }
 
